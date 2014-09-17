@@ -1,0 +1,4 @@
+=========== Painel de Controle ===========
+// Linguagem: C#
+// Compilador: Visual Studio 2008
+// FrameWork: 3.5
