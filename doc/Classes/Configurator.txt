@@ -1,0 +1,35 @@
+[Configurator]
+	
+* Private
+	arquivo:string    (nome ou local do arquivo a ser lido ou gravado)
+	contFile:string[] (conteudo do arquivo carregado)
+	fileExists:bool   (existência do arquivo)
+	
+* Public
+	isComment(line:string):bool (Verifica se a linha é do tipo comentário)
+	setAtr(conf:string, res:string):void (Setar valor na configuração desejada)
+	getAtr(conf:string):string (Adquire valor da configuração desejada)
+	loadFile():bool (
+		Armazena configurações do arquivo e verifica se existe no qual ele
+		irá armazena o resultado na variavel fileExists e retorna-lo
+	)
+	saveFile():void (Varre todas configurações armazenadas e reescreve o arquivo)
+	
+* Exemplo de uso dos Metodos, Propriedades e Construtor
+	# Extasiando a Classe
+	- Configurator variavel = new Configurator(local ou nome do arquivo);
+	
+	# Metodos
+		* FileExists (Propriedade)
+		- if(FileExists) ... // Utilizado nos metodos setAtr(...) e saveFile(), pois não possui tratamento interno
+		* isComment(texto em string)
+		- if(isComment("// 1234")) Console.WriteLine("Este texto é comentário."); // ...
+		* setAtr(Configuração, valor)
+		- setAtr("login_port", 7300); // Irá atribuir o valor 7300 na configuração login_port
+		* getAtr(Configuração)
+		- getAtr("login_port"); // Irá retorna o valor da configuração login_port, caso não exista a irá retorna uma string vazia
+		* loadFile()
+		- if(!loadFile()) { Console.WriteLine("Arquivo não encontrado."); } // ...
+		- saveFile()
+		- saveFile(); // Irá reescrever arquivo tendo ou não modificações na configuração)
+	
